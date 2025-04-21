@@ -3,59 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MA INDUMENTARIA</title>
+  <title>MA INDUMENTARIA | Ropa Urbana con Estilo</title>
+  
+  <!-- Meta tags para SEO -->
+  <meta name="description" content="MA INDUMENTARIA - Tienda de ropa urbana con estilo. Remeras, buzos, musculosas y más. Envíos a todo el país.">
+  <meta name="keywords" content="ropa urbana, indumentaria, moda, remeras, buzos, musculosas, puperas">
+  <meta name="author" content="MA INDUMENTARIA">
+  
+  <!-- Open Graph para compartir en redes sociales -->
+  <meta property="og:title" content="MA INDUMENTARIA | Ropa Urbana con Estilo">
+  <meta property="og:description" content="Descubre nuestra colección de ropa urbana con estilo. Envíos a todo el país.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.maindumentaria.com">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  
+  <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <style>
     html {
       scroll-behavior: smooth;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease forwards;
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    
+    /* Personalización para el scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
     }
   </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
   <!-- NAVBAR -->
-  <header class="bg-white shadow fixed top-0 left-0 w-full z-50">
-    <nav class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+  <header class="bg-white shadow fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+    <nav class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
       <h1 class="text-xl font-bold">MA INDUMENTARIA</h1>
-      <ul class="flex gap-6 text-sm font-medium">
-        <li><a href="#inicio" class="hover:text-pink-600">Inicio</a></li>
-        <li><a href="#sobre-nosotros" class="hover:text-pink-600">Sobre Nosotros</a></li>
-        <li><a href="#productos-destacados" class="hover:text-pink-600">Productos</a></li>
-        <li><a href="#cta" class="hover:text-pink-600">Contacto</a></li>
+      
+      <!-- Menu para móvil -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Menu para desktop -->
+      <ul class="hidden md:flex gap-6 text-sm font-medium">
+        <li><a href="#inicio" class="hover:text-pink-600 transition-colors">Inicio</a></li>
+        <li><a href="#sobre-nosotros" class="hover:text-pink-600 transition-colors">Sobre Nosotros</a></li>
+        <li><a href="#productos-destacados" class="hover:text-pink-600 transition-colors">Productos</a></li>
+        <li><a href="#cta" class="hover:text-pink-600 transition-colors">Contacto</a></li>
       </ul>
     </nav>
+    
+    <!-- Menu móvil desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md pb-4 px-4">
+      <ul class="flex flex-col gap-4 text-sm font-medium">
+        <li><a href="#inicio" class="block py-2 hover:text-pink-600 transition-colors">Inicio</a></li>
+        <li><a href="#sobre-nosotros" class="block py-2 hover:text-pink-600 transition-colors">Sobre Nosotros</a></li>
+        <li><a href="#productos-destacados" class="block py-2 hover:text-pink-600 transition-colors">Productos</a></li>
+        <li><a href="#cta" class="block py-2 hover:text-pink-600 transition-colors">Contacto</a></li>
+      </ul>
+    </div>
   </header>
 
-  <section id="inicio" class="relative h-[60vh] w-full">
-    <!-- Imagen de fondo -->
-    <img src="images/Diseño sin título (15).png" 
-         alt="MA Indumentaria"
-         class="absolute inset-0 w-full h-full object-cover brightness-75">
+  <!-- HERO SECTION -->
+  <section id="inicio" class="relative h-[60vh] md:h-[70vh] w-full">
+    <!-- Imagen de fondo con overlay -->
+    <div class="absolute inset-0 w-full h-full">
+      <img src="images/fondo.webp" 
+           alt="MA Indumentaria" 
+           class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    </div>
   
-    <!-- Texto superpuesto -->
+    <!-- Texto superpuesto con animación -->
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-      <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-wide">MA INDUMENTARIA</h2>
-      <p class="text-lg md:text-xl mt-4">Vestite con estilo</p>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide animate-fadeIn">MA INDUMENTARIA</h2>
+      <p class="text-lg md:text-xl mt-4 animate-fadeIn delay-100">Vestite con estilo</p>
+      <a href="#productos-destacados" class="mt-8 bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition transform hover:scale-105 animate-fadeIn delay-200">
+        Ver Colección
+      </a>
     </div>
   </section>
   
-
   <!-- CONTENIDO PRINCIPAL -->
-  <div id="main-container" class="max-w-5xl mx-auto px-4 pt-28 pb-12 space-y-20">
-
-
+  <div id="main-container" class="max-w-5xl mx-auto px-4 pt-20 md:pt-28 pb-12 space-y-16 md:space-y-24">
+    
     <!-- SOBRE NOSOTROS -->
-    <section id="sobre-nosotros" class="space-y-8">
-      <h2 class="text-3xl font-semibold text-center">Sobre Nosotros</h2>
+    <section id="sobre-nosotros" class="space-y-8 scroll-mt-20">
+      <h2 class="text-3xl font-semibold text-center relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-pink-600 after:rounded-full">Sobre Nosotros</h2>
     
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <!-- Imagen ilustrativa -->
-        <img src="images/remera-59-300x300.jpg" alt="Nuestra historia" class="w-full rounded-lg shadow-md object-cover h-72 md:h-96">
+        <div class="overflow-hidden rounded-lg shadow-md">
+          <img src="images/remera-59-300x300-pica.webp" alt="Nuestra historia" class="w-full object-cover h-72 md:h-96 transition-transform duration-500 hover:scale-105">
+        </div>
     
         <!-- Texto con historia -->
         <div class="space-y-4 text-gray-700 leading-relaxed">
           <p>
-            En <strong>MA Indumentaria</strong> creemos que vestirse es una forma de expresar lo que somos. Nacimos con la idea de ofrecer ropa que combine estilo urbano, comodidad y personalidad.
+            En <strong class="text-pink-600">MA Indumentaria</strong> creemos que vestirse es una forma de expresar lo que somos. Nacimos con la idea de ofrecer ropa que combine estilo urbano, comodidad y personalidad.
           </p>
           <p>
             Nos inspira la moda independiente, las tendencias que marcan calle y actitud. Cada prenda está pensada para que te sientas auténtic@, libre y con estilo.
@@ -63,55 +139,231 @@
           <p>
             Desde nuestros comienzos vendemos exclusivamente por redes sociales, lo que nos permite estar cerca de nuestra comunidad y crear una experiencia más personal.
           </p>
+          <div class="mt-6 flex flex-wrap gap-4">
+            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Moda oversize</span>
+            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Atención personalizada</span>
+            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Calidad premium</span>
+          </div>
         </div>
       </div>
     </section>
     
-
     <!-- PRODUCTOS DESTACADOS -->
-    <section id="productos-destacados" class="space-y-6">
-      <h2 class="text-2xl font-semibold text-center">Productos Destacados</h2>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        
-        <li class="border p-4 rounded-lg shadow-sm hover:shadow-md transition space-y-2">
-          <img src="images/remera-59-300x300.jpg" alt="Remera Oversize Duki" class="w-full h-48 object-cover rounded-md">
-          <h3 class="font-medium">Remera Oversize Duki</h3>
+    <section id="productos-destacados" class="space-y-8 scroll-mt-20">
+      <h2 class="text-3xl font-semibold text-center relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-pink-600 after:rounded-full">Productos Destacados</h2>
+      
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <li class="border border-gray-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group overflow-hidden">
+          <div class="overflow-hidden rounded-md mb-3">
+            <img src="images/remera-59-300x300-pica.webp" alt="Remera Oversize Duki" class="w-full h-48 object-cover rounded-md transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <h3 class="font-medium">REMERON MOON</h3>
+          <p class="text-gray-500 text-sm mt-1">Talle unico - 100% algodon</p>
+          <div class="mt-3">
+            <a href="#" class="inline-block text-pink-600 hover:text-pink-700 text-sm font-medium transition-colors">Ver detalle</a>
+          </div>
         </li>
     
-        <li class="border p-4 rounded-lg shadow-sm hover:shadow-md transition space-y-2">
-          <img src="images/buzo-53-300x300.jpg" alt="Buzos Frizados" class="w-full h-48 object-cover rounded-md">
-          <h3 class="font-medium">Buzos Frizados</h3>
+        <li class="border border-gray-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group overflow-hidden">
+          <div class="overflow-hidden rounded-md mb-3">
+            <img src="images/buzo-53-300x300-pica.webp" alt="Buzos Frizados" class="w-full h-48 object-cover rounded-md transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <h3 class="font-medium">BUZO DUKI</h3>
+          <p class="text-gray-500 text-sm mt-1">Friza intermedia</p>
+          <div class="mt-3">
+            <a href="#" class="inline-block text-pink-600 hover:text-pink-700 text-sm font-medium transition-colors">Ver detalle</a>
+          </div>
         </li>
     
-        <li class="border p-4 rounded-lg shadow-sm hover:shadow-md transition space-y-2">
-          <img src="images/MUSCULOSA-15-300x300.jpg" alt="Musculosa Oversize" class="w-full h-48 object-cover rounded-md">
-          <h3 class="font-medium">Musculosa Oversize</h3>
+        <li class="border border-gray-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group overflow-hidden">
+          <div class="overflow-hidden rounded-md mb-3">
+            <img src="images/MUSCULOSA-15-300x300-pica.webp" alt="Musculosa Oversize" class="w-full h-48 object-cover rounded-md transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <h3 class="font-medium">MUSCULOSA WORLD TOUR</h3>
+          <p class="text-gray-500 text-sm mt-1">Talle unico</p>
+          <div class="mt-3">
+            <a href="#" class="inline-block text-pink-600 hover:text-pink-700 text-sm font-medium transition-colors">Ver detalle</a>
+          </div>
         </li>
     
-        <li class="border p-4 rounded-lg shadow-sm hover:shadow-md transition space-y-2">
-          <img src="images/pupera-18-300x300.jpg" alt="Baby Tee" class="w-full h-48 object-cover rounded-md">
-          <h3 class="font-medium">Baby Tee</h3>
+        <li class="border border-gray-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group overflow-hidden">
+          <div class="overflow-hidden rounded-md mb-3">
+            <img src="images/pupera-18-300x300-pica.webp" alt="Baby Tee" class="w-full h-48 object-cover rounded-md transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <h3 class="font-medium">PUPERA LOS ANGELES</h3>
+          <p class="text-gray-500 text-sm mt-1">100% algodón</p>
+          <div class="mt-3">
+            <a href="#" class="inline-block text-pink-600 hover:text-pink-700 text-sm font-medium transition-colors">Ver detalle</a>
+          </div>
         </li>
-    
       </ul>
-    </section>
-    
-
-    <!-- CALL TO ACTION -->
-    <section id="cta" class="text-center space-y-4">
-      <h2 class="text-2xl font-semibold">¿Listo para vestirte con actitud?</h2>
-      <p class="text-gray-700">Contactanos y empezá tu cambio de estilo hoy:</p>
-      <div class="flex justify-center gap-6">
-        <a href="https://www.instagram.com/tuusuario" target="_blank" class="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700 transition">
-          Instagram
-        </a>
-        <a href="https://wa.me/549XXXXXXXXXX" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition">
-          WhatsApp
+      
+      <div class="text-center mt-8">
+        <a href="https://www.instagram.com/m.a.indum/" target="_blank" class="inline-block bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md shadow-md hover:shadow-lg transition transform hover:scale-105">
+          Ver más productos en Instagram
         </a>
       </div>
-    </section>
-
+    </section> 
+    <!-- SECCIÓN CONTACTO -->
+    <section id="cta" class="bg-gradient-to-br from-zinc-900 to-zinc-800 text-white py-14 px-6 text-center rounded-3xl shadow-lg space-y-6 scroll-mt-20">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">¿Hablamos?</h2>
+      <p class="text-lg text-zinc-300 max-w-xl mx-auto">Contactanos directo por WhatsApp o seguinos en Instagram para no perderte ninguna novedad.</p>
+    
+      <div class="flex justify-center gap-4 md:gap-6 flex-wrap pt-4">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/549XXXXXXXXXX" target="_blank"
+           class="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:scale-105 transform transition px-5 py-3 rounded-xl shadow-md">
+          <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24">
+            <path d="M12.003 2.003A10 10 0 002 12a9.93 9.93 0 001.406 5.09L2 22l4.973-1.3a9.953 9.953 0 005.03 1.3c5.523 0 10-4.477 10-10s-4.478-10-10-10zm0 1.5a8.5 8.5 0 018.5 8.5c0 4.692-3.808 8.5-8.5 8.5a8.466 8.466 0 01-4.42-1.256l-.318-.19-2.954.773.79-2.91-.207-.33A8.467 8.467 0 013.5 12c0-4.692 3.808-8.5 8.5-8.5zm4.39 11.927c-.234-.117-1.383-.684-1.597-.762-.214-.078-.37-.117-.527.117-.156.234-.605.762-.742.918-.137.156-.273.176-.507.058-.234-.117-.99-.366-1.886-1.169-.697-.622-1.167-1.389-1.305-1.623-.137-.234-.015-.36.103-.476.106-.105.234-.273.352-.41.118-.137.157-.234.235-.39.078-.156.039-.293-.02-.41-.058-.117-.527-1.273-.723-1.746-.19-.453-.383-.391-.527-.398-.137-.007-.293-.01-.449-.01a.86.86 0 00-.625.293c-.214.234-.84.82-.84 2 .001 1.18.86 2.32.98 2.48.117.156 1.696 2.59 4.113 3.63.575.248 1.02.396 1.37.507.575.184 1.1.158 1.516.096.462-.069 1.383-.566 1.578-1.112.195-.547.195-1.015.137-1.112-.058-.097-.214-.156-.449-.273z"/>
+          </svg>
+          WhatsApp
+        </a>
+    
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/m.a.indum/" target="_blank"
+           class="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:scale-105 transform transition px-5 py-3 rounded-xl shadow-md">
+          <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm9.5 2.25a.75.75 0 110 1.5.75.75 0 010-1.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/>
+          </svg>
+          Instagram
+        </a>
+        
+        <!-- Email -->
+        <a href="mailto:info@maindumentaria.com" 
+           class="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:scale-105 transform transition px-5 py-3 rounded-xl shadow-md">
+          <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24">
+            <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0l8 5 8-5H4zm0 2v10h16V8l-8 5-8-5z"/>
+          </svg>
+          Email
+        </a>
+      </div>
+</section>
+<!-- FOOTER -->
+</div>
+<footer class="bg-gray-900 text-gray-400 py-12">
+  <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Logo y descripción -->
+    <div class="space-y-4">
+      <h3 class="text-xl font-bold text-white">MA INDUMENTARIA</h3>
+      <p class="text-sm">Tu tienda de ropa urbana con estilo. Diseños únicos y exclusivos para que te expreses como sos.</p>
+      <div class="flex space-x-4 pt-2">
+        <a href="https://www.instagram.com/m.a.indum/" class="text-gray-400 hover:text-white">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm9.5 2.25a.75.75 0 110 1.5.75.75 0 010-1.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-white">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-white">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Links útiles -->
+    <div>
+      <h4 class="text-white font-medium mb-4">Links Útiles</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+        <li><a href="#sobre-nosotros" class="hover:text-white transition-colors">Sobre Nosotros</a></li>
+        <li><a href="#productos-destacados" class="hover:text-white transition-colors">Productos</a></li>
+        <li><a href="#cta" class="hover:text-white transition-colors">Contacto</a></li>
+      </ul>
+    </div>
+    
+    <!-- Información de contacto -->
+    <div>
+      <h4 class="text-white font-medium mb-4">Contacto</h4>
+      <ul class="space-y-3 text-sm">
+        <li class="flex items-start gap-2">
+          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+          </svg>
+          <span>Buenos Aires, Argentina</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+          </svg>
+          <a href="mailto:info@maindumentaria.com" class="hover:text-white transition-colors">info@maindumentaria.com</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          <span>+54 9 2344 42-0146 - +54 9 2343 41-3943</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+          </svg>
+          <span>Lun - Vie: 10:00 - 22:00</span>
+        </li>
+      </ul>
+    </div>
   </div>
-
+  
+  <!-- Copyright -->
+  <div class="border-t border-gray-800 mt-12 pt-6 text-center text-sm">
+    <p>&copy; 2025 MA INDUMENTARIA. Todos los derechos reservados.</p>
+  </div>
+</footer>
+  <!-- SCRIPTS -->
+  <script>
+    // Control del menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+      
+      // Cerrar menú al hacer click en un enlace
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+      
+      // Navbar scroll efecto
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('py-2');
+          navbar.classList.remove('py-4');
+          navbar.classList.add('shadow-md');
+        } else {
+          navbar.classList.remove('py-2');
+          navbar.classList.add('py-4');
+          navbar.classList.remove('shadow-md');
+        }
+      });
+      
+      // Scroll smooth para enlaces internos
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
