@@ -1,0 +1,44 @@
+[
+  {
+    "NOMBRE": "COMIC GROOVE",
+    "PRECIO": 11000,
+    "CATEGORIA": "MUSCULOSA",
+    "COLORES": "Beige, Gris, Marron, Violeta",
+    "IMAGEN": "https://virginiaindumentaria.com/wp-content/uploads/2025/01/MUSCULOSA-12.jpg"
+  },
+  {
+    "NOMBRE": "LUCK 11:11",
+    "PRECIO": 11000,
+    "CATEGORIA": "MUSCULOSA",
+    "COLORES": "Beige",
+    "IMAGEN": "https://virginiaindumentaria.com/wp-content/uploads/2025/01/MUSCULOSA-11.jpg"
+  },
+  {
+    "NOMBRE": "MONEY",
+    "PRECIO": 11000,
+    "CATEGORIA": "MUSCULOSA",
+    "COLORES": "Blanco, Beige, Marron, Crema",
+    "IMAGEN": "https://virginiaindumentaria.com/wp-content/uploads/2025/01/MUSCULOSA-13.jpg"
+  },
+  {
+    "NOMBRE": "THINK",
+    "PRECIO": 11000,
+    "CATEGORIA": "MUSCULOSA",
+    "COLORES": "Beige, Violeta",
+    "IMAGEN": "https://virginiaindumentaria.com/wp-content/uploads/2025/01/MUSCULOSA-16.jpg"
+  },
+  {
+    "NOMBRE": "WORLD TOUR",
+    "PRECIO": 11000,
+    "CATEGORIA": "MUSCULOSA",
+    "COLORES": "Beige",
+    "IMAGEN": "https://virginiaindumentaria.com/wp-content/uploads/2025/01/MUSCULOSA-15.jpg"
+  },
+  {
+    "NOMBRE": 69,
+    "PRECIO": 11000,
+    "CATEGORIA": "MUSCULOSA",
+    "COLORES": "Marron, Violeta",
+    "IMAGEN": "https://virginiaindumentaria.com/wp-content/uploads/2025/01/MUSCULOSA-3.jpg"
+  }
+]
