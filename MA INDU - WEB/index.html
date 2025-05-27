@@ -21,6 +21,7 @@
   
   <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   
   <style>
     html {
@@ -76,31 +77,22 @@
       </div>
       
       <!-- Menu para desktop -->
-      <ul class="hidden md:flex gap-6 text-sm font-medium">
-        <li><a href="#inicio" class="hover:text-pink-600 transition-colors">Inicio</a></li>
-        <li><a href="#sobre-nosotros" class="hover:text-pink-600 transition-colors">Sobre Nosotros</a></li>
-        <li><a href="catalogo.html" class="hover:text-pink-600 transition-colors">Catalogo</a></li>
-        <li><a href="#productos-destacados" class="hover:text-pink-600 transition-colors">Productos</a></li>
-        <li><a href="#cta" class="hover:text-pink-600 transition-colors">Contacto</a></li>
-        <li class="relative">
-            <a href="catalogo.html#modal-carrito" class="flex items-center gap-1 hover:text-pink-600 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m13-9l2 9M9 21h6" />
-              </svg>
-              <span>Carrito</span>
-              <span id="contador-carrito" class="absolute -top-2 -right-3 bg-pink-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">0</span>
-            </a>
-        </li>
-      </ul>
+     <ul class="hidden md:flex gap-6 text-sm font-medium">
+        <li><a href="index.html#inicio" class="hover:text-red-600 transition-colors">Inicio</a></li>
+        <li><a href="index.html#sobre-nosotros" class="hover:text-red-600 transition-colors">Sobre Nosotros</a></li>
+        <li><a href="catalogo.html" class="hover:text-red-600 transition-colors">Catálogo</a></li>
+        <li><a href="index.html#productos-destacados" class="hover:text-red-600 transition-colors">Productos</a></li>
+        <li><a href="index.html#cta" class="hover:text-red-600 transition-colors">Contacto</a></li>
+    </ul>
     </nav>
     
     <!-- Menu móvil desplegable -->
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md pb-4 px-4">
       <ul class="flex flex-col gap-4 text-sm font-medium">
-        <li><a href="#inicio" class="block py-2 hover:text-pink-600 transition-colors">Inicio</a></li>
-        <li><a href="#sobre-nosotros" class="block py-2 hover:text-pink-600 transition-colors">Sobre Nosotros</a></li>
-        <li><a href="#carrito.html" class="block py-2 hover:text-pink-600 transition-colors">Catalogo</a></li>
-        <li><a href="#cta" class="block py-2 hover:text-pink-600 transition-colors">Contacto</a></li>
+        <li><a href="#inicio" class="block py-2 hover:text-redk-600 transition-colors">Inicio</a></li>
+        <li><a href="#sobre-nosotros" class="block py-2 hover:text-red-600 transition-colors">Sobre Nosotros</a></li>
+        <li><a href="catalogo.html" class="block py-2 hover:text-red-600 transition-colors">Catalogo</a></li>
+        <li><a href="#cta" class="block py-2 hover:text-red-600 transition-colors">Contacto</a></li>
       </ul>
     </div>
   </header>
@@ -119,7 +111,7 @@
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide animate-fadeIn">MA INDUMENTARIA</h2>
       <p class="text-lg md:text-xl mt-4 animate-fadeIn delay-100">Vestite con estilo</p>
-      <a href="#productos-destacados" class="mt-8 bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition transform hover:scale-105 animate-fadeIn delay-200">
+      <a href="#productos-destacados" class="mt-8 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition transform hover:scale-105 animate-fadeIn delay-200">
         Ver Colección
       </a>
     </div>
@@ -130,7 +122,7 @@
     
     <!-- SOBRE NOSOTROS -->
     <section id="sobre-nosotros" class="space-y-8 scroll-mt-20">
-      <h2 class="text-3xl font-semibold text-center relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-pink-600 after:rounded-full">Sobre Nosotros</h2>
+      <h2 class="text-3xl font-semibold text-center relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-red-600 after:rounded-full">Sobre Nosotros</h2>
     
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <!-- Imagen ilustrativa -->
@@ -141,7 +133,7 @@
         <!-- Texto con historia -->
         <div class="space-y-4 text-gray-700 leading-relaxed">
           <p>
-            En <strong class="text-pink-600">MA Indumentaria</strong> creemos que vestirse es una forma de expresar lo que somos. Nacimos con la idea de ofrecer ropa que combine estilo urbano, comodidad y personalidad.
+            En <strong class="text-red-600">MA Indumentaria</strong> creemos que vestirse es una forma de expresar lo que somos. Nacimos con la idea de ofrecer ropa que combine estilo urbano, comodidad y personalidad.
           </p>
           <p>
             Nos inspira la moda independiente, las tendencias que marcan calle y actitud. Cada prenda está pensada para que te sientas auténtic@, libre y con estilo.
@@ -160,7 +152,7 @@
     
     <!-- PRODUCTOS DESTACADOS -->
     <section id="productos-destacados" class="space-y-8 scroll-mt-20">
-      <h2 class="text-3xl font-semibold text-center relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-pink-600 after:rounded-full">Productos Destacados</h2>
+      <h2 class="text-3xl font-semibold text-center relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-red-600 after:rounded-full">Productos Destacados</h2>
       
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         <li class="border border-gray-200 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group overflow-hidden">
@@ -170,7 +162,7 @@
           <h3 class="font-medium">REMERON MOON</h3>
           <p class="text-gray-500 text-sm mt-1">Talle unico - 100% algodon</p>
           <div class="mt-3">
-            <a href="#" class="inline-block text-pink-600 hover:text-pink-700 text-sm font-medium transition-colors">Ver detalle</a>
+            <a href="#" class="inline-block text-red-600 hover:text-red-700 text-sm font-medium transition-colors">Ver detalle</a>
           </div>
         </li>
     
@@ -181,7 +173,7 @@
           <h3 class="font-medium">BUZO DUKI</h3>
           <p class="text-gray-500 text-sm mt-1">Friza intermedia</p>
           <div class="mt-3">
-            <a href="#" class="inline-block text-pink-600 hover:text-pink-700 text-sm font-medium transition-colors">Ver detalle</a>
+            <a href="#" class="inline-block text-red-600 hover:text-red-700 text-sm font-medium transition-colors">Ver detalle</a>
           </div>
         </li>
     
@@ -192,7 +184,7 @@
           <h3 class="font-medium">MUSCULOSA WORLD TOUR</h3>
           <p class="text-gray-500 text-sm mt-1">Talle unico</p>
           <div class="mt-3">
-            <a href="#" class="inline-block text-pink-600 hover:text-pink-700 text-sm font-medium transition-colors">Ver detalle</a>
+            <a href="#" class="inline-block text-red-600 hover:text-red-700 text-sm font-medium transition-colors">Ver detalle</a>
           </div>
         </li>
     
@@ -203,7 +195,7 @@
           <h3 class="font-medium">PUPERA LOS ANGELES</h3>
           <p class="text-gray-500 text-sm mt-1">100% algodón</p>
           <div class="mt-3">
-            <a href="#" class="inline-block text-pink-600 hover:text-pink-700 text-sm font-medium transition-colors">Ver detalle</a>
+            <a href="#" class="inline-block text-red-600 hover:text-red-700 text-sm font-medium transition-colors">Ver detalle</a>
           </div>
         </li>
       </ul>
@@ -375,5 +367,6 @@
       });
     });
   </script>
+  
 </body>
 </html>
