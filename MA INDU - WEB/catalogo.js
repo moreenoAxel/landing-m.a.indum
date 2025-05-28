@@ -46,12 +46,14 @@ function renderizarProductos() {
     div.className = 'border p-4 rounded shadow text-center';
 
     let colores = [];
-    if (producto.COLORES?.includes('|')) {
-      colores = producto.COLORES.split('|').map(c => c.trim());
-    } else if (producto.COLORES?.includes(',')) {
-      colores = producto.COLORES.split(',').map(c => c.trim());
-    } else if (producto.COLORES) {
-      colores = [producto.COLORES.trim()];
+    if (producto.COLORES) {
+      if (producto.COLORES.includes('|')) {
+        colores = producto.COLORES.split('|').map(c => c.trim());
+      } else if (producto.COLORES.includes(',')) {
+        colores = producto.COLORES.split(',').map(c => c.trim());
+      } else {
+        colores = [producto.COLORES.trim()];
+      }
     }
 
     div.innerHTML = `
@@ -94,7 +96,15 @@ function activarBotones() {
     boton.addEventListener('click', () => {
       const nombre = boton.dataset.nombre;
       const precio = parseFloat(boton.dataset.precio);
-      carrito.push({ nombre, precio });
+
+      // Obtener el select de colores asociado al botón
+      const selectColores = boton.previousElementSibling.previousElementSibling;
+      let color = "No especificado";
+      if (selectColores && selectColores.tagName === 'SELECT') {
+        color = selectColores.value;
+      }
+
+      carrito.push({ nombre, precio, color });
       guardarCarrito();
       renderCarritoModal();
       actualizarBurbujaCarrito();
@@ -116,17 +126,49 @@ function renderCarritoModal() {
     const li = document.createElement('li');
     li.className = 'flex justify-between items-center';
     li.innerHTML = `
-      ${item.nombre} - $${item.precio}
+      ${item.nombre} - Color: ${item.color} - $${item.precio}
       <button onclick="eliminarDelCarrito(${i})" class="text-red-600 ml-2">🗑️</button>
     `;
     lista.appendChild(li);
     total += item.precio;
   });
 
-  totalEl.textContent = total;
-  const mensaje = carrito.map(p => `• ${p.nombre} - $${p.precio}`).join('%0A');
-  const enlace = `https://wa.me/5492343413943?text=Hola! me interesan estos productos: %0A${mensaje}%0ATotal: $${total}`;
-  document.getElementById('enlace-wpp').href = enlace;
+  totalEl.textContent = total.toFixed(2);
+
+  // Construir mensaje para WhatsApp
+  let mensaje = "¡Hola! Quiero hacer el siguiente pedido:\n\n";
+  
+  carrito.forEach(producto => {
+    mensaje += `• ${producto.nombre}\n`;
+    mensaje += `  Color: ${producto.color}\n`;
+    mensaje += `  Precio: $${producto.precio}\n\n`;
+  });
+  
+  mensaje += `*Total: $${total.toFixed(2)}*\n\n`;
+  mensaje += "¡Gracias!";
+
+  // Codificar el mensaje correctamente para URL
+  const mensajeCodificado = encodeURIComponent(mensaje);
+  
+  // Número de teléfono
+  const numeroWhatsApp = "5492343413943";
+  
+  // Construir enlace de WhatsApp
+  const enlace = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+  
+  console.log("Enlace generado:", enlace);
+  
+  const enlaceElement = document.getElementById('enlace-wpp');
+  if (enlaceElement) {
+    enlaceElement.href = enlace;
+  }
+}
+
+function eliminarDelCarrito(index) {
+  carrito.splice(index, 1);
+  guardarCarrito();
+  renderCarritoModal();
+  actualizarBurbujaCarrito();
 }
 
 function actualizarBurbujaCarrito() {
@@ -138,19 +180,12 @@ function actualizarBurbujaCarrito() {
   burbuja_movil.style.display = carrito.length > 0 ? 'inline-block' : 'none';
 }
 
-function eliminarDelCarrito(index) {
-  carrito.splice(index, 1);
-  guardarCarrito();
-  renderCarritoModal();
-  actualizarBurbujaCarrito();
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Recuperar carrito guardado si existe
   const carritoGuardado = localStorage.getItem('carrito');
   if (carritoGuardado) {
     carrito.push(...JSON.parse(carritoGuardado));
   }
+
   cargarJSONDesdeArchivo();
 
   filtroSelect.addEventListener('change', () => {
@@ -159,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarProductos();
   });
 
-  // Abrir modal carrito
+  // Modal carrito
   const abrirCarritoBtn = document.getElementById('abrir-carrito');
   const abrirCarritoMovilBtn = document.getElementById('abrir-carrito-movil');
   const modalCarrito = document.getElementById('modal-carrito');
@@ -192,11 +227,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   actualizarBurbujaCarrito();
 
-  // Código adicional para menú móvil y scroll effect (sin cambios)
+  // Menú móvil y scroll
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  if(menuToggle && mobileMenu){
+  if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
@@ -210,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const navbar = document.getElementById('navbar');
-  if(navbar){
+  if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         navbar.classList.add('py-2');
@@ -224,7 +259,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  // SECCIÓN CORREGIDA: Solo aplicar scroll suave a enlaces internos de navegación
+  // Excluir específicamente el enlace de WhatsApp
+  document.querySelectorAll('a[href^="#"]:not(#enlace-wpp)').forEach(anchor => {
     anchor.addEventListener('click', e => {
       e.preventDefault();
 
