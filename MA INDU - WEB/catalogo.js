@@ -125,7 +125,7 @@ function renderCarritoModal() {
 
   totalEl.textContent = total;
   const mensaje = carrito.map(p => `• ${p.nombre} - $${p.precio}`).join('%0A');
-  const enlace = `https://wa.me/549XXXXXXXXXX?text=Hola! Quiero comprar:%0A${mensaje}%0ATotal: $${total}`;
+  const enlace = `https://wa.me/5492343413943?text=Hola! me interesan estos productos: %0A${mensaje}%0ATotal: $${total}`;
   document.getElementById('enlace-wpp').href = enlace;
 }
 
