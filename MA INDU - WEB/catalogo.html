@@ -104,16 +104,20 @@
   </main>
 
   <!-- MODAL CARRITO -->
-  <div id="modal-carrito" class="modal">
-    <div id="modal-contenido" class="bg-white rounded-lg p-6 w-full max-w-md mx-auto mt-20 shadow-lg relative">
-      <span id="cerrar-carrito" class="absolute top-3 right-4 text-xl cursor-pointer">&times;</span>
-      <h2 class="text-xl font-bold mb-4">Carrito</h2>
-      <ul id="lista-carrito-modal" class="space-y-2 mb-4"></ul>
-      <p class="text-right font-semibold">Total: $<span id="total-modal">0</span></p>
-      <a id="enlace-wpp" href="#" target="_blank">
-        <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 mt-4 rounded-md">Enviar Pedido por WhatsApp</button>
-      </a>
-    </div>
+  <div id="catalogo"></div>
+
+<div id="modal-carrito" class="modal" style="display:none;">
+  <div id="modal-contenido" class="bg-white rounded-lg p-6 w-full max-w-md mx-auto mt-20 shadow-lg relative">
+    <span id="cerrar-carrito" class="absolute top-3 right-4 text-xl cursor-pointer" style="cursor:pointer;">&times;</span>
+    <h2 class="text-xl font-bold mb-4">Carrito</h2>
+    <ul id="lista-carrito-modal" class="space-y-2 mb-4"></ul>
+    <p class="text-right font-semibold">Total: $<span id="total-modal">0</span></p>
+    <!-- Solo el enlace, sin botón dentro -->
+    <a id="enlace-wpp" href="#" target="_blank"
+       class="w-full block bg-green-500 hover:bg-green-600 text-white py-2 mt-4 rounded-md text-center no-underline cursor-pointer">
+      Enviar Pedido por WhatsApp
+    </a>
   </div>
+</div>
 </body>
 </html>
