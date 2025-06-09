@@ -10,7 +10,7 @@ const paginacion = document.getElementById('paginacion');
 
 async function cargarJSONDesdeArchivo() {
   try {
-    const res = await fetch('productos.json');
+    const res = await fetch('csvjson (2).json');
     productosGlobal = await res.json();
     poblarCategorias();
     renderizarProductos();
